@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
+//const path = require('path');
 require('dotenv').config();
 
 // Імпорт Firebase конфігурації
@@ -55,9 +55,9 @@ const verifyToken = async (req, res, next) => {
 };
 
 // Хостинг статичних файлів для фронтенду (якщо потрібно)
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../frontend/build')));
-}
+//if (process.env.NODE_ENV === 'production') {
+    //app.use(express.static(path.join(__dirname, '../frontend/build')));
+//}
 
 // API Routes
 
@@ -492,11 +492,11 @@ async function updateTourRating(tourId) {
 }
 
 // Обробка всіх інших маршрутів для SPA (якщо це production)
-if (process.env.NODE_ENV === 'production') {
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-    });
-}
+//if (process.env.NODE_ENV === 'production') {
+    //app.get('*', (req, res) => {
+      //  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+   // });
+//}
 
 // Запуск сервера
 app.listen(PORT, () => {
