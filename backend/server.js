@@ -62,12 +62,8 @@ const verifyToken = async (req, res, next) => {
 // API Routes
 
 // Базовий маршрут для перевірки роботи сервера
-app.get('/api/health', (req, res) => {
-    res.json({
-        success: true,
-        message: "Server is running!",
-        timestamp: new Date().toISOString()
-    });
+app.get('/', (req, res) => {
+  res.send('API is running');
 });
 
 // ТУРИ
